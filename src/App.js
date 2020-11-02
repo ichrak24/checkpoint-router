@@ -3,7 +3,14 @@ import MovieList from "./components/MovieList/MovieList";
 import { movieList } from "./Constants/data";
 import AddCard from "./components/AddCard/AddCard";
 import Filter from "./components/Filter/Filter";
+import { BrowserRouter as Router ,Route } from "react-router-dom";
+import Description from "./Description/Description";
+
+
+
+
 import "./App.css";
+
 
 function App() {
   const [movies, setMovies] = useState(movieList);
@@ -18,16 +25,38 @@ function App() {
     setSearch(search);
 
   };
+ const showCard=(id)=>{
+
+
+    setMovies.filter((el) => id === el.id);
+}
 
   return (
-    <div className="App">
-      <h1> Movie Application </h1>
-      <div className="filter-add">
+    
+      <Router>
+        <Route path="/(|Movielist)/" render={()=>(
+        <div className="App">
+        <h1 > Movie Application </h1>
+        <div className="filter-add">
         <AddCard addmovies={addmovies} />
         <Filter searchmovies={searchmovies} setRate={setRate}/>
       </div>
-      <MovieList rate={rate} list={movies} filterText={search} />
-    </div>
+      
+        
+        <MovieList rate={rate} list={movies} filterText={search} 
+      showCard={showCard}/>
+      
+      </div>
+        )}
+      />
+      
+    
+      <Route   path={`/Description`}  render={() => <Description  />}
+      />
+   
+      </Router>
+    
+    
   );
 }
 

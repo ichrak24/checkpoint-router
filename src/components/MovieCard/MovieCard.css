@@ -1,3 +1,27 @@
-
+.Link.btn-primary:hover {
+    background: #797b80;
+    
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #f8f3f0;
+    box-shadow: none;
+    line-height: 22px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: none;
+    text-align: left;
+    color: #f8f3f0;
    
+}
 
+.box link.btn-primary {
+    display: block;
+    margin: 0 -30px -30px -30px;
+    padding: 15px 81px 19px 30px;
+}
+ul.list_1 > li link.btn-primary {
+    display: block;
+    margin: 0 -30px -30px -30px;
+    padding: 15px 81px 19px 30px;
+}

@@ -6,6 +6,7 @@ function AddCard({ addmovies }) {
   const [title, setTitle] = useState("");
   const [description, setDescrption] = useState("");
   const [posterUrl, setPosterUrl] = useState("");
+  const [trailerSrc, setTrailerSrc] = useState("");
   const [rate, setRate] = useState(0);
 
   const handleClose = () => setShow(false);
@@ -36,6 +37,12 @@ function AddCard({ addmovies }) {
                 type="text"
                 placeholder="Entrer posterurl"
                 onChange={(e) => setPosterUrl(e.target.value)}
+              />
+                <Form.Label>trailerSrc :</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Entrer trailerSrc"
+                onChange={(e) => setTrailerSrc(e.target.value)}
               />
 
               <Form.Label>description :</Form.Label>
@@ -68,6 +75,7 @@ function AddCard({ addmovies }) {
                 title: title,
                 description: description,
                 posterUrl: posterUrl,
+                trailerSrc: trailerSrc,
                 rate: rate,
               });
             }}
