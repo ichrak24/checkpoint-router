@@ -3,7 +3,7 @@ import MovieList from "./components/MovieList/MovieList";
 import { movieList } from "./Constants/data";
 import AddCard from "./components/AddCard/AddCard";
 import Filter from "./components/Filter/Filter";
-import { BrowserRouter as Router ,Route } from "react-router-dom";
+
 import Description from "./Description/Description";
 
 
@@ -25,16 +25,11 @@ function App() {
     setSearch(search);
 
   };
- const showCard=(id)=>{
 
-
-    setMovies.filter((el) => id === el.id);
-}
 
   return (
     
-      <Router>
-        <Route path="/(|Movielist)/" render={()=>(
+     
         <div className="App">
         <h1 > Movie Application </h1>
         <div className="filter-add">
@@ -44,20 +39,10 @@ function App() {
       
         
         <MovieList rate={rate} list={movies} filterText={search} 
-      showCard={showCard}/>
+      />
       
       </div>
-        )}
-      />
-      
-    
-      <Route   path={`/Description`}  render={() => <Description  />}
-      />
-   
-      </Router>
-    
-    
-  );
-}
+        );}
+  
 
 export default App;

@@ -1,31 +1,38 @@
-import React from 'react'
-import {Card,Button} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import React from "react";
+import { movieList } from "../Constants/data";
+import { Link } from "react-router-dom";
 
-
-function Description({title,trailerSrc,description}) {
-  
-    return (
+function Description(props) {
+  let title = props.match.params.title;
+  const movie = movieList.filter((el) => el.title == title);
+  return (
+    <div>
+      {movie.map((el) => (
         <div>
-            <Card className="text-center">
-              <label>Title :</label>
-  <Card.Header>{title}</Card.Header>
-  <Card.Body>
-  <label>Description  :</label>i
-    <Card.Title>{description}</Card.Title>
-    <Card.Text>
-    <label>Video :</label>
-    <iframe  width="560" height="315" 
-    src={trailerSrc} frameborder="0" allow="accelerometer; autoplay;
-     clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen></iframe>
-    </Card.Text>
-    <Link to="/MovieList"> <Button variant="primary">Go Home</Button></Link>
-  </Card.Body>
-
-</Card>
+          {" "}
+          <h1>Description page</h1>
+          <h2>{el.title}</h2>
+          <h3>{el.description}</h3>
+          <iframe
+            width="560"
+            height="315"
+            src={el.trailerSrc}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <Link to={`/`}>
+            <button
+              className="btn btn-primary btn-normal btn-inline"
+              target="_self"
+            >
+              Go Home
+            </button>
+          </Link>
         </div>
-    )
+      ))}
+    </div>
+  );
 }
 
 export default Description;

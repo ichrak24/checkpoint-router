@@ -1,4 +1,4 @@
-import VideoPlayer from "react-video-js-player";
+
 export const movieList = [
   {
     id:Math.random(),
